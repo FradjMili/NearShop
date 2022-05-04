@@ -1,13 +1,21 @@
 
+<<<<<<< HEAD
 <div >
+=======
+<div class="allProduct">
+    <body>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Tapestry&family=Water+Brush&display=swap" rel="stylesheet">
+    </body>
+>>>>>>> 63ec16c632049e0ea18c6b72cadae4d07e8263b4
     <div class="body">
-    <div class="home5">
-    <div  >
         <div class="container3" *ngFor="let element of product">
             <div class="cardcontainer">
                 <div class="photo2"> 
                     <img [src]="element.image_url"> 
                 </div>
+
                 <div class="content">
                     <p class="txt4">Product Name:{{element.title}}</p>
                     <p class="txt2">Description:{{element.description}}</p>
@@ -19,6 +27,16 @@
                         <button class="btn" class="btn btn-primary">update</button>
                     </div>
                     
+<<<<<<< HEAD
+=======
+                    <p class="txt2">{{element.description}}</p>
+                    <p class="txt2">{{element.quantite}}</p>
+                </div>
+                <div class="footer1">
+                    <!-- <p><a class="waves-effect waves-light btn" href="#">Read More</a><a id="heart"><span class="like"><i class="fab fa-gratipay"></i>Like</span></a></p> -->
+                    <button class="btn" (click)="deleteProduct(element._id)">delete</button>
+                    <button class="btn">update</button>
+>>>>>>> 63ec16c632049e0ea18c6b72cadae4d07e8263b4
                 </div>
                 
                     <!-- <p><a class="waves-effect waves-light btn" href="#">Read More</a><a id="heart"><span class="like"><i class="fab fa-gratipay"></i>Like</span></a></p> -->
@@ -27,6 +45,6 @@
                 </div>
             </div>
         </div>
-        </div>
-        </div>
+        
+       
      </div>
