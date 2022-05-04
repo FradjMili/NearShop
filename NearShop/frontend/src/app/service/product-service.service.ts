@@ -9,20 +9,20 @@ http:HttpClient
     this.http = httpClient
   }
 
-  AddProduct(title:String , description :String , price :String ,quantite:number,image_url:String,Longitude: Number, Latiude: Number )
+  AddProduct(title:String , description :String , price :String ,quantite:number,url:String,Longitude: Number, Latiude: Number )
   {
       const body ={
         title,
         description,
         price,
         quantite,
-        image_url,
+        image_url:url,
         Longitude,
         Latiude
       
         
       };
-console.log(body);
+//console.log(body);
 
       return this.http.post(`http://localhost:3000/api/products/addproduct`,body)
 

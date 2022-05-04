@@ -16,10 +16,12 @@ var add = function (req, res) {
 };
 
 let addProduct = async (req, res) => {
-  const { image } = req.body;
-  await cloudinary.uploader.upload(image, (err, result) => {
+  const { image_url } = req.body;
+  //console.log(req.body)
+  await cloudinary.uploader.upload(image_url, (result, err) => {
     if (err) {
       res.send(err);
+      console.log(err)
       
     } else {
       const url = result.secure_url;
@@ -27,16 +29,18 @@ let addProduct = async (req, res) => {
       res.send(url);
 
       let product = new Product({
+        
         title: req.body.title,
-        image_url: url,
         description: req.body.description,
-        quantite: req.body.quantite,
         price: req.body.price,
+        quantite: req.body.quantite,
+        image_url: url,
         Longitude :req.body.Longitude,
         Latiude :req.body.Latiude,
-        user_id: req.body.user_id,
+        
+       user_id: req.body.user_id,
       });
-
+console.log(product)
       // Save product
       product
         .save()

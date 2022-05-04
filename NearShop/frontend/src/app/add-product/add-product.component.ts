@@ -26,13 +26,13 @@ url:any
       Description:new FormControl(),
       Price:new FormControl(),
       Quantity :new FormControl(),
-      image :new FormControl(),
+     
     })
 
     onSubmit(){
-      console.log(this.addProduct);
+      //console.log(this.addProduct);
        this.service.AddProduct(this.addProduct.value.title,this.addProduct.value.Description,this.addProduct.value.Price,this.addProduct.value.Quantity,
-        this.addProduct.value.image, this.Longitude,  this.Latiude).subscribe((res :any)=>{
+        this.url, this.Longitude,  this.Latiude).subscribe((res :any)=>{
           console.log(res);
         //  console.log(this.Longitude,this.Latiude);
           

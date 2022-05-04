@@ -6,7 +6,7 @@
         <div class="container3" *ngFor="let element of product">
             <div class="cardcontainer">
                 <div class="photo2"> 
-                    <!-- <img src="element.image_url"> -->
+                    <img [src]="element.image_url"> 
                 </div>
                 <div class="content">
                     <p class="txt4">Product Name:{{element.title}}</p>
