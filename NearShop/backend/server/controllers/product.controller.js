@@ -1,6 +1,6 @@
 const Product = require("../database-mongo/Product.model");
 const Cart = require("../database-mongo/Cart.model.js");
-const cloudinary = require("../utils/cloudinary");
+const cloudinary = require("cloudinary");
 
 
 var add = function (req, res) {
@@ -32,6 +32,8 @@ let addProduct = async (req, res) => {
         description: req.body.description,
         quantite: req.body.quantite,
         price: req.body.price,
+        Longitude :req.body.Longitude,
+        Latiude :req.body.Latiude,
         user_id: req.body.user_id,
       });
 

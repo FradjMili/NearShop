@@ -14,7 +14,7 @@ export class AddProductComponent implements OnInit {
   public el = new mapboxgl.Marker();
    private Latiude= 10.196506147691451;
    private Longitude = 36.792635314317465;
-
+url:any
   constructor(private http :HttpClient ,private router:Router ,
     private service :ProductServiceService) { 
 
@@ -44,6 +44,20 @@ export class AddProductComponent implements OnInit {
         })
       
     }
+    onFileChange(event:any) {
+     
+      
+      let reader = new FileReader();
+      reader.readAsDataURL(event.target.files[0]);
+      reader.onload = (e) => {
+        this.url = e.target?.result;
+         console.log(this.url,'fghjklm');
+      };
+     
+      
+    }
+    
+
     
     mapbox = {
       accessToken: 'pk.eyJ1IjoibWlsaWZyYWoiLCJhIjoiY2ttdGs1aTIxMHNkNTJwczEwYjhvMnRpNSJ9.iK6jtPrKF5BlQbsIOf2aRg',

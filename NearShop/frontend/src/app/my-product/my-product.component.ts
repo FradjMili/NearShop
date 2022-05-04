@@ -21,6 +21,8 @@ product:any
     getProduct=()=>{
       axios.get(`http://localhost:3000/api/products/getProducts`)
       .then((res)=>{
+        console.log("ff",res);
+        
       this.product=res.data
       }).catch((err)=>{
         console.log(err)
