@@ -5,6 +5,8 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { AddProductComponent } from './add-product/add-product.component';
 import { HomePageComponent } from './home-page/home-page.component';
+import { SearchComponent } from './search/search.component';
+import { CommentComponent } from './comment/comment.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MyProductComponent } from './my-product/my-product.component';
@@ -14,7 +16,10 @@ import { MyProductComponent } from './my-product/my-product.component';
     NavbarComponent,
     AddProductComponent,
     HomePageComponent,
+    SearchComponent,
+    CommentComponent,
     MyProductComponent
+
   ],
   imports: [
     BrowserModule,

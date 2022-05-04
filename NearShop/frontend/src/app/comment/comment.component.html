@@ -1,0 +1,36 @@
+<div>
+    <div>
+      <div>
+        <div class="field">
+          <div> 
+            <div style="height: 5px;background-color:black ; margin-top: 20px;"></div>
+            <p>comments</p>
+            <div class="comment" *ng-for="let comment of comments" v-bind:key="comment._id">
+              <span style="border:1px solid;width:100%;" >
+              <p>{{comment.user_id}}</p>
+                {{ comment.description }}
+
+                <a
+                  class="button is-danger is-small"
+                  (click)="deleteComment(comment._id)"
+                  >Delete</a
+                >
+              </span>
+            </div>
+          </div>
+          <label class="label">comment here</label>
+          <div class="control">
+            <input
+              class="input"
+              type="text"
+              placeholder="write ..."
+              v-model="description"
+            />
+          </div>
+        </div>
+        <div class="control">
+          <button class="button is-success" (click)="saveComment()">SEND</button>
+        </div>
+      </div>
+    </div>
+  </div>
