@@ -9,6 +9,7 @@ import { SearchComponent } from './search/search.component';
 import { CommentComponent } from './comment/comment.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AboutUsComponent } from './about-us/about-us.component';
 import { MyProductComponent } from './my-product/my-product.component';
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { MyProductComponent } from './my-product/my-product.component';
     NavbarComponent,
     AddProductComponent,
     HomePageComponent,
+    AboutUsComponent,
     SearchComponent,
     CommentComponent,
     MyProductComponent
