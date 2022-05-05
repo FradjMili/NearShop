@@ -15,10 +15,11 @@ export class AddProductComponent implements OnInit {
    private Latiude= 10.196506147691451;
    private Longitude = 36.792635314317465;
 url:any
+id:string=""
   constructor(private http :HttpClient ,private router:Router ,
     private service :ProductServiceService) { 
 
-   
+     
     }
 
     addProduct =new FormGroup({
@@ -31,17 +32,32 @@ url:any
 
     onSubmit(){
       //console.log(this.addProduct);
-       this.service.AddProduct(this.addProduct.value.title,this.addProduct.value.Description,this.addProduct.value.Price,this.addProduct.value.Quantity,
-        this.url, this.Longitude,  this.Latiude).subscribe((res :any)=>{
-          console.log(res);
-        //  console.log(this.Longitude,this.Latiude);
-          
-          this.addProduct.reset();
-            this.Longitude = 0 ;
-            this.Latiude = 0    ;
+      if(this.id !==""){
+        this.service.UpdateProduct(this.id,this.addProduct.value.title,this.addProduct.value.Description,this.addProduct.value.Price,this.addProduct.value.Quantity,
+          this.url, this.Longitude,  this.Latiude).subscribe((res :any)=>{
+            console.log(res);
+          //  console.log(this.Longitude,this.Latiude);
             
-          
-        })
+            this.addProduct.reset();
+              this.Longitude = 0 ;
+              this.Latiude = 0    ;
+              this.router.navigate(['/myProduct']);
+            
+          })
+      }
+      else {
+        this.service.AddProduct(this.addProduct.value.title,this.addProduct.value.Description,this.addProduct.value.Price,this.addProduct.value.Quantity,
+          this.url, this.Longitude,  this.Latiude).subscribe((res :any)=>{
+            console.log(res);
+          //  console.log(this.Longitude,this.Latiude);
+            
+            this.addProduct.reset();
+              this.Longitude = 0 ;
+              this.Latiude = 0    ;
+              this.router.navigate(['/myProduct']);
+            
+          })
+      }
       
     }
     onFileChange(event:any) {
@@ -84,6 +100,22 @@ url:any
       .addTo(map);
   });
 
+  this.addProduct.setValue({
+    title: localStorage.getItem("title"),
+    Description: localStorage.getItem("description"),
+    Price:localStorage.getItem("price"),
+    Quantity:localStorage.getItem("quantite")
+ });
+   this.id = localStorage.getItem("id") || ""
+
+
+   localStorage.setItem("id","" )
+   localStorage.setItem("title","" )
+   localStorage.setItem("description","")
+   localStorage.setItem("price","" )
+   localStorage.setItem("quantite","" )
+     
   }
+
 
 }

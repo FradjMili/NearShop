@@ -3,17 +3,7 @@ const Cart = require("../database-mongo/Cart.model.js");
 const cloudinary = require("cloudinary");
 
 
-var add = function (req, res) {
-  let { title, description, image_url,price, quantite ,Longitude , Latiude,user_id} = req.body;
-  
-  Product.insertMany({ title, description, image_url,price, quantite,Longitude ,Latiude, user_id })
-    .then((product) => {
-      res.status(200).send(product);
-    })
-    .catch((error) => {
-      res.status(500).send(error);
-    });
-};
+
 
 let addProduct = async (req, res) => {
   const { image_url } = req.body;
@@ -26,7 +16,7 @@ let addProduct = async (req, res) => {
     } else {
       const url = result.secure_url;
       console.log(url);
-      res.send(url);
+    
 
       let product = new Product({
         
@@ -45,7 +35,7 @@ console.log(product)
       product
         .save()
         .then((product) => {
-        //  res.json(product);
+        res.json(product);
         
         })
         .catch((err) => console.log(err));
@@ -94,6 +84,17 @@ var updateProduct = function (req, res) {
     })
     .catch((err) => {
       res.send(err);
+    });
+};
+var add = function (req, res) {
+  let { title, description, image_url,price, quantite ,Longitude , Latiude,user_id} = req.body;
+  
+  Product.insertMany({ title, description, image_url,price, quantite,Longitude ,Latiude, user_id })
+    .then((product) => {
+      res.status(200).send(product);
+    })
+    .catch((error) => {
+      res.status(500).send(error);
     });
 };
 
